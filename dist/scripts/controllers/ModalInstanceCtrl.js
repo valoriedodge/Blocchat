@@ -1,17 +1,17 @@
 (function(){
   function ModalInstanceCtrl($uibModalInstance, Rooms){
     this.rooms = Rooms.all;
-    var $ctrl = this;
-    $ctrl.rooms = Rooms.all;
-    $ctrl.selected = {
-      room: $ctrl.rooms[0]
+    // var $ctrl = this;
+    // $ctrl.rooms = Rooms.all;
+    // $ctrl.selected = {
+    //   room: $ctrl.rooms[0]
+    // };
+
+    this.ok = function () {
+      $uibModalInstance.close('$ctrl.selected.room.name');
     };
 
-    $ctrl.ok = function () {
-      $uibModalInstance.close($ctrl.selected.room.name);
-    };
-
-    $ctrl.cancel = function () {
+    this.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
   }

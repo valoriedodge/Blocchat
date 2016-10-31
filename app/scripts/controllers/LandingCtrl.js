@@ -1,22 +1,25 @@
 (function() {
-    function LandingCtrl(Rooms, $uibModal, $log, $document) {
+    function LandingCtrl(Rooms, Messages, $uibModal, $log, $document) {
         this.title = "Let's Chat";
-        this.rooms = Rooms.all
-        var $ctrl = this;
-        $ctrl.animationsEnabled = true;
-
+        var landing = this;
+        landing.rooms = Rooms.all;
+        this.messages = Messages.all;
+        this.currentMessages = Messages.getByRoomId;
+        landing.rooms.$loaded().then(function(){
+          landing.currentRoom = landing.rooms[0];
+          this.messages.Id = "landing.currentRoom.$id";
+        })
+        this.messages.time = new Date();
+        // this.animationsEnabled = true;
         this.open = function (size) {
-          // var parentElem = parentSelector ?
-          //   angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
           var modalInstance = $uibModal.open({
-            animation: $ctrl.animationsEnabled,
+            animation: true,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             size: size
-            // appendTo: parentElem,
             // resolve: {
             //   items: function () {
             //     return this.rooms;
@@ -34,5 +37,5 @@
 
     angular
         .module('blocChat')
-        .controller('LandingCtrl', ["Rooms", '$uibModal', '$log', '$document', LandingCtrl]);
+        .controller('LandingCtrl', ["Rooms", "Messages", '$uibModal', '$log', '$document', LandingCtrl]);
 })();
