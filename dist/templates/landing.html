@@ -1,7 +1,7 @@
 <div class="main">
-  <h1>{{$landing.title}}</h1><button type="button" class="btn btn-default" ng-click="$landing.open()">New Room</button>
+  <h1>{{landing.title}}</h1><button type="button" class="btn btn-default" ng-click="landing.open()">New Room</button>
   <!-- List of rooms -->
-  <div class="rooms" ng-repeat="room in $landing.rooms">
+  <div class="rooms" ng-repeat="room in landing.rooms">
     <div class="room">
       <h4>{{room.name}}</h4>
     </div>
