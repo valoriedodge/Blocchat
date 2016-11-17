@@ -4,16 +4,21 @@
     var rooms = {};
     rooms = $firebaseArray(ref);
 
-    rooms.addItem = function(){
-
-      rooms.$add({
-        name: rooms.newRoomText
-      });
-      rooms.newRoomText = null;
-    };
+    // rooms.addRoom = function(newRoomText){
+    //
+    //   rooms.$add({
+    //     name: newRoomText
+    //   });
+    //   // $scope.newRoomText = null;
+    // };
 
     return {
-      all: rooms
+      all: rooms,
+      addRoom: function(newRoomText){
+        rooms.$add({
+          name: newRoomText
+        });
+      }
     };
   }
 
