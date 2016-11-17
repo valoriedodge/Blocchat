@@ -1,10 +1,12 @@
 (function() {
-    function LandingCtrl(Rooms, $uibModal) {
+    function LandingCtrl($scope, Rooms, Messages, $uibModal) {
         this.title = "Let's Chat";
-        this.rooms = Rooms.all
+        this.rooms = Rooms.all;
+        $scope.currentRoom = Rooms.all;
+        this.messages = Messages.all;
         this.openModalInstance = function () {
           $uibModal.open({
-            templateUrl: 'myModalContent.html',
+            templateUrl: 'templates/myModalContent.html',
             controller: 'ModalInstanceCtrl'
           });
         };
@@ -12,5 +14,5 @@
 
     angular
         .module('blocChat')
-        .controller('LandingCtrl', ["Rooms", '$uibModal', LandingCtrl]);
+        .controller('LandingCtrl', ['$scope', "Rooms", 'Messages', '$uibModal', LandingCtrl]);
 })();
