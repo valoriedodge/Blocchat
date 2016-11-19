@@ -1,18 +1,24 @@
 (function() {
-    function LandingCtrl($scope, Rooms, Messages, $uibModal) {
+    function LandingCtrl(Rooms, Messages, $uibModal) {
         this.title = "Let's Chat";
-        this.rooms = Rooms.all;
-        this.rooms.$loaded(function(){
-          $scope.currentRoom = this.rooms[0];
+        var landing = this;
+        landing.rooms = Rooms.all;
+        landing.rooms.$loaded().then(function(){
+          landing.currentRoom = landing.rooms[0];
+          landing.currentMessages = Messages.currentRoomMessages(landing.currentRoom);
         })
-        $scope.currentRoom = this.rooms;
-        this.messages = Messages.all;
+
+        landing.messages = Messages.all;
+        // landing.messages.$loaded().then(function(){
+        //   landing.currentMessages = landing.rooms[0];
+        //   // landing.currentMessages = Messages.currentRoomMessages()
+        // })
         this.messages.time = new Date();
-        this.addMessage = function(){
+        this.addMessage = function(currentRoomId){
           if(!this.messages.newMessageText){
             alert("No Message Written");
           } else {
-            Messages.addMessage("$scope.currentRoom.$id");
+            Messages.addMessage(currentRoomId);
             this.messages.newMessageText = "";
           }
         }
@@ -26,5 +32,5 @@
 
     angular
         .module('blocChat')
-        .controller('LandingCtrl', ['$scope', "Rooms", 'Messages', '$uibModal', LandingCtrl]);
+        .controller('LandingCtrl', ["Rooms", 'Messages', '$uibModal', LandingCtrl]);
 })();
