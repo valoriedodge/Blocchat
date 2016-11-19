@@ -5,18 +5,15 @@
     messages = $firebaseArray(ref);
     return {
       all: messages,
-      create: function(currentRoomId){
-        messages.addItem = function(currentRoomId){
-          var today = "Yes";
-          messages.$add({
-            username: messages.username,
-            content: messages.newMessageText,
-            sentAt: messages.time.toString(),
-            roomId: currentRoomId
-          });
-          messages.newMessageText = null;
-          messages.username = null;
-        };
+      addMessage: function(currentRoomId){
+        messages.$add({
+          // username: messages.username,
+          content: messages.newMessageText,
+          sentAt: messages.time.toString(),
+          roomID: currentRoomId
+        });
+        messages.newMessageText = null;
+        messages.username = null;
       }
     };
   }

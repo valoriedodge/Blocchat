@@ -8,11 +8,15 @@
   </div>
 </div>
 <div class="room col-md-10">
-  <h4>{{currentRoom}}</h4>
+  <h4>{{currentRoom[0].$id}}</h4>
     <!-- List of messages -->
   <div class="messages" ng-repeat="message in landing.messages">
     <div class="message">
       <p>{{message.content}}</p>
+      <p>{{message.sentAt}}</p>
+      <p>{{message.roomID}}</p>
     </div>
   </div>
+  <input type="text" ng-model="landing.messages.newMessageText" placeholder="Write Message"></br>
+  <button type="button" ng-click="landing.addMessage()">Send</button>
 </div>
