@@ -3,16 +3,14 @@
         this.title = "Let's Chat";
         var landing = this;
         landing.rooms = Rooms.all;
+        landing.messages = Messages.all;
         landing.rooms.$loaded().then(function(){
           landing.currentRoom = landing.rooms[0];
           landing.currentMessages = Messages.currentRoomMessages(landing.currentRoom);
         })
-
-        landing.messages = Messages.all;
-        // landing.messages.$loaded().then(function(){
-        //   landing.currentMessages = landing.rooms[0];
-        //   // landing.currentMessages = Messages.currentRoomMessages()
-        // })
+        landing.updateMessages = function(room){
+          landing.currentMessages = Messages.currentRoomMessages(room);
+        }
         this.messages.time = new Date();
         this.addMessage = function(currentRoomId){
           if(!this.messages.newMessageText){

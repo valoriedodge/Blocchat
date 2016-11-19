@@ -1,10 +1,8 @@
 (function(){
   function Messages($firebaseArray){
     var ref = firebase.database().ref().child("messages");
-    var messages = {};
-    var currentRoomref = firebase.database().ref("messages");
-    var currentMessages = {};
-    messages = $firebaseArray(ref);
+    var messages = $firebaseArray(ref);
+    var currentRoomref = firebase.database().ref("messages").orderByChild('roomId');
     return {
       all: messages,
       addMessage: function(currentRoomId){
@@ -18,7 +16,7 @@
         messages.username = null;
       },
       currentRoomMessages: function (roomId) {
-        return $firebaseArray(currentRoomref.orderByChild('roomId').equalTo(roomId.$id));
+        return $firebaseArray(currentRoomref.equalTo(roomId.$id));
       }
     };
   }
