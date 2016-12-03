@@ -1,0 +1,49 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   color: #404040;
+}
+h1 {
+  color: #008080;
+}
+.main {
+  background-color: #bfbfbf;
+  height: 100%;
+}
+.newMessage input {
+  position:absolute;
+  bottom:0;
+  height:60px;
+  width:80%;
+}
+.newMessage button {
+  right: 0px;
+  position:absolute;
+  bottom:0;
+  height:60px;
+  width: 20%;
+  background-color: #008080;
+}
+.currentRoom {
+  padding:0px;
+  min-height:100%;
+}
+.currentRoomName, .message {
+  margin-left: 15px;
+}
+.time {
+  float: right;
+  margin-right: 15px;
+}
+.odd {
+  background-color: #f2f2f2;
+  padding: 0px;
+}
+.username {
+  font-weight: bold;
+}
+h6:hover, .room:hover {
+  color: #008080;
+}

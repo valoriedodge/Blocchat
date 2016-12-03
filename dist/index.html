@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Bloc Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles/style.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
     <ui-view></ui-view>
@@ -19,9 +23,10 @@
     <!-- AngularRouter -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -36,8 +41,10 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/LandingCtrl.js"></script>
     <script src="/scripts/controllers/ModalInstanceCtrl.js"></script>
+    <script src="/scripts/controllers/UserModalCtrl.js"></script>
     <script src="/scripts/services/Room.js"></script>
     <script src="/scripts/services/Messages.js"></script>
-    <script src="/templates/myModalContent.html"></script>
+    <script src="/scripts/services/Cookies.js"></script>
+
 </body>
 </html>
