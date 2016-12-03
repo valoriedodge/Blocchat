@@ -4,11 +4,11 @@
     if (!currentUser || currentUser === '') {
       $uibModal.open({
         templateUrl: 'templates/userModal.html',
-        controller: 'UserModalCtrl'
+        controller: 'UserModalCtrl',
+        keyboard: false,
+        backdrop: 'static'
       })
-
     }
-
   }
 
   angular

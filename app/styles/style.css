@@ -15,19 +15,20 @@ h1 {
 .newMessage input {
   position:absolute;
   bottom:0;
-  height:60px;
+  height:40px;
   width:80%;
 }
 .newMessage button {
   right: 0px;
   position:absolute;
   bottom:0;
-  height:60px;
+  height:40px;
   width: 20%;
   background-color: #008080;
 }
 .currentRoom {
-  padding:0px;
+  padding: 0px;
+  padding-bottom:40px;
   min-height:100%;
 }
 .currentRoomName, .message {
